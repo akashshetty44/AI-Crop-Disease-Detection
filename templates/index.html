@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Crop Disease Detection</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🌿 AI Crop Disease Detection</h1>
+
+    <p class="subtitle">
+        Upload a crop leaf image to detect disease using Artificial Intelligence.
+    </p>
+
+    <div class="card">
+
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+
+            <label for="leaf_image">Select Leaf Image</label>
+
+            <input
+                type="file"
+                id="leaf_image"
+                name="leaf_image"
+                accept=".jpg,.jpeg,.png"
+                required
+            >
+
+            <!-- Image Preview -->
+            <img
+                id="preview"
+                src=""
+                alt="Image Preview"
+                style="display:none; width:250px; margin:20px auto; border-radius:10px;"
+            >
+
+            <br><br>
+
+            <button type="submit">
+                🔍 Detect Disease
+            </button>
+
+        </form>
+
+    </div>
+
+    <br>
+
+    <div class="info">
+
+        <h2>Supported Crops</h2>
+
+        <ul>
+            <li>🍅 Tomato</li>
+            <li>🥔 Potato</li>
+            <li>🌽 Corn</li>
+            <li>🍎 Apple</li>
+        </ul>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+<script>
+// Image Preview
+const fileInput = document.getElementById("leaf_image");
+const preview = document.getElementById("preview");
+
+fileInput.addEventListener("change", function () {
+
+    const file = this.files[0];
+
+    if (!file) {
+        preview.style.display = "none";
+        return;
+    }
+
+    const allowed = [
+        "image/jpeg",
+        "image/jpg",
+        "image/png"
+    ];
+
+    if (!allowed.includes(file.type)) {
+        alert("Please upload a JPG or PNG image.");
+        fileInput.value = "";
+        preview.style.display = "none";
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+        preview.src = e.target.result;
+        preview.style.display = "block";
+    };
+
+    reader.readAsDataURL(file);
+});
+
+// Loading Button
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function () {
+
+    const button = form.querySelector("button");
+
+    button.disabled = true;
+    button.innerHTML = "⏳ Detecting Disease...";
+
+});
+</script>
+
+</body>
+</html>
