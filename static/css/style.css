@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f2f7f3;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+h1 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.card,
+.result-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px dashed #4caf50;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+button,
+.btn {
+    display: inline-block;
+    background: #2e7d32;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+button:hover,
+.btn:hover {
+    background: #1b5e20;
+}
+
+.info {
+    margin-top: 30px;
+}
+
+.info h2 {
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.info ul {
+    list-style: none;
+}
+
+.info li {
+    padding: 6px 0;
+}
+
+.leaf-image {
+    display: block;
+    width: 300px;
+    max-width: 100%;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 3px solid #4caf50;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background: #4caf50;
+    color: white;
+}
+
+.advice {
+    margin-top: 25px;
+    padding: 20px;
+    background: #e8f5e9;
+    border-left: 5px solid #2e7d32;
+    border-radius: 8px;
+}
+
+.advice h3 {
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    table,
+    table th,
+    table td {
+        font-size: 14px;
+    }
+
+    button,
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .leaf-image {
+        width: 100%;
+    }
+}
