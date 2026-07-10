@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🌿 Crop Disease Detection Result</h1>
+
+    <div class="result-card">
+
+        <img src="{{ url_for('static', filename='uploads/' + image) }}"
+             alt="Uploaded Leaf"
+             class="leaf-image">
+
+        <table>
+
+            <tr>
+                <th>Detected Disease</th>
+                <td>{{ disease }}</td>
+            </tr>
+
+            <tr>
+                <th>Confidence</th>
+                <td>{{ confidence }}%</td>
+            </tr>
+
+            <tr>
+                <th>Recommended Fertilizer</th>
+                <td>{{ fertilizer }}</td>
+            </tr>
+
+            <tr>
+                <th>Recommended Pesticide</th>
+                <td>{{ pesticide }}</td>
+            </tr>
+
+            <tr>
+                <th>City</th>
+                <td>{{ weather.city }}</td>
+            </tr>
+
+            <tr>
+                <th>Temperature</th>
+                <td>{{ weather.temperature }} °C</td>
+            </tr>
+
+            <tr>
+                <th>Humidity</th>
+                <td>{{ weather.humidity }}%</td>
+            </tr>
+
+            <tr>
+                <th>Weather</th>
+                <td>{{ weather.description }}</td>
+            </tr>
+
+        </table>
+
+        <div class="advice">
+
+            <h3>🌱 Farming Advice</h3>
+
+            {% if "Healthy" in disease %}
+                <p>
+                    Your crop appears healthy. Continue regular irrigation,
+                    balanced fertilization, and periodic monitoring.
+                </p>
+
+            {% else %}
+                <p>
+                    Remove infected leaves, apply the recommended pesticide,
+                    and monitor the crop regularly to prevent disease spread.
+                </p>
+            {% endif %}
+
+        </div>
+
+        <br>
+
+        <a href="/" class="btn">
+            🔍 Detect Another Leaf
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
